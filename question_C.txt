@@ -1,0 +1,51 @@
+TP2 C
+
+EXERCICE 1 
+
+Q1:
+
+L'arborescence est A->B->C->E->D, un processus fils est généré a chaque fois. Sauf pour les 2 dernieres variable ou le break s'enclenche ce qui créer un désordre. 
+
+Q2:
+
+Cela va afficher n=5 fois la phrase "Mon nom est <%c>". La variable C commencera a "A" puis finira a "D".
+
+Q3:
+
+#include <unistd.h>
+#include<sys/types.h>
+#include<stdio.h>
+#include<sys/wait.h>
+
+int main(void)
+{
+    int i;
+    for(i=0; i<4; i++)
+        if(fork())break;
+    //wait(NULL);
+    printf("Mon nom est <%c>\n", 'A'+i);
+    wait(NULL);
+    return 0;
+}
+
+resultat:
+Mon nom est <A>
+Mon nom est <B>
+Mon nom est <C>
+Mon nom est <D>
+Mon nom est <E>
+
+Q4:
+
+resultat:
+Mon nom est <A>
+Mon nom est <B>
+Mon nom est <C>
+schwi-G5-5590:~/Documents/ex_C$ Mon nom est <D>
+Mon nom est <E>
+
+EXERCICE2:
+
+
+
+
