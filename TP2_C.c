@@ -8,8 +8,7 @@ int main(void)
     int i;
     for(i=0; i<4; i++)
         if(fork())break;
-    //wait(NULL);
     printf("Mon nom est <%c>\n", 'A'+i);
-    //wait(NULL);
+    //wait(NULL); enlever le com pour la question 3
     return 0;
 }
