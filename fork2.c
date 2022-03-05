@@ -7,7 +7,9 @@
 
 int main() {
     int child = 0;
-
+    int wstatus;
+    int status= WIFEXITED(wstatus);
+    wait(&wstatus);
     printf("Combien de fils voulez vous ?");
     scanf("%d[^\n]", &child);
 
@@ -16,11 +18,16 @@ int main() {
         if(fork() == 0)
         {
             printf("CHILD pid %d DE PARENT pid %d\n",getpid(),getppid());
-            exit(0);
+            printf("le processus fils %d est mort en renvoyant %d\n", getpid(), status);
+            exit(getpid());
         }
+        
+        wait(NULL);
     }
+    /*
     for(int i=0;i<5;i++)
     wait(NULL);
+    */
 
     //printf("%d\n", child);
     exit(EXIT_SUCCESS);
